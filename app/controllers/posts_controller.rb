@@ -6,6 +6,19 @@ class PostsController < ApplicationController
     @posts = current_user.posts
   end
 
+  def filter
+    if params[:status].present?
+      @posts = current_user.posts.where(status: params[:status])
+    else
+      @posts = current_user.posts.all
+    end
+
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.replace('posts', partial: 'admin/posts/posts', locals: { posts: @posts }) }
+      format.html { render :index }
+    end
+  end
+
   def show
   end
 
@@ -43,7 +56,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:brand, :model, :body_type, :mileage, :color, :price, :fuel, :year, :engine_capacity, :phone_number, :name, :image, :status)
+    params.require(:post).permit(:brand, :model, :body_type, :mileage, :color, :price, :fuel, :year, :engine_capacity, :phone_number, :name, :image)
   end
 
   def set_post

@@ -1,0 +1,15 @@
+<h1 class="text-3xl font-bold mb-6">Edit Post Status</h1>
+
+<p class="text-lg font-semibold">Model: <%= @post.model %></p>
+<p class="text-lg font-semibold mb-4">Current Status: <%= @post.status.capitalize %></p>
+
+<%= form_with model: [:admin, @post], url: update_status_admin_post_path(@post), method: :patch, class: "space-y-4" do |f| %>
+  <div class="mb-4">
+    <%= f.label :status, "Select New Status", class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= f.select :status, Post.statuses.keys.map { |status| [status.titleize, status] }, { prompt: 'Choose a status' }, class: "w-full p-2 border border-gray-300 rounded-md" %>
+  </div>
+  
+  <div>
+    <%= f.submit "Update Status", class: "bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+  </div>
+<% end %>

@@ -1,11 +1,27 @@
 Rails.application.routes.draw do
+  devise_for :admins
+
+  namespace :admin do
+    resources :posts do
+      member do
+        patch :approve
+        patch :reject
+      end
+    end
+    root to: 'posts#index'
+  end
+
   devise_for :users, controllers: {
     sessions: "users/sessions"
   }
 
-  root "pages#home"
+  root "pages#index"
 
-  resources :posts
+  resources :posts do
+    collection do
+      get :filter
+    end
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

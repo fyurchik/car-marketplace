@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "post-status-#{@post.id}" do %>
+  <td class="py-3 px-6" id="post-status-<%= @post.id %>"><%= @post.status.capitalize %></td>
+<% end %>

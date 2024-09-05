@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Car Marketplace</title>
+    <title>Admin Section</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,12 +9,16 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
   </head>
-
   <body>
-    <%= render "layouts/navbar" %>
     <%= notice %>
     <%= alert %>
+
+    <div class="flex justify-between items-right bg-green-500 p-6">
+      <%= link_to 'Posts', admin_posts_path %>
+      <%= button_to "Sign out", destroy_admin_session_path, method: :delete, data: { turbo: false }, class: "text-red-500" %>
+    </div>
     <%= yield %>
   </body>
 </html>

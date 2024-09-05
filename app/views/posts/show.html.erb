@@ -2,7 +2,7 @@
   <h1 class="text-2xl font-bold mb-4"><%= @post.brand %> <%= @post.model %></h1>
 
   <% if @post.image.attached? %>
-    <%= image_tag @post.image, class: "w-100 h-100 mb-4" %>
+    <%= image_tag @post.image, class: "w-48 h-48 object-cover mb-4 rounded-md" %>
   <% end %>
 
   <p class="mb-2"><%= @post.body_type %></p>
