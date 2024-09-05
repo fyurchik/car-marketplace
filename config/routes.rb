@@ -1,15 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :admins, controllers: {
-    sessions: "admins/sessions"
-  }
-
   devise_for :users, controllers: {
     sessions: "users/sessions"
   }
 
   root "pages#home"
-  get "pages/users"
-  get "pages/admins"
 
   resources :posts
 
