@@ -1,0 +1,42 @@
+<div>
+  <h1>Posts#index</h1>
+  <p>Find me in app/views/posts/index.html.erb</p>
+  <p><%= link_to 'New Post', new_post_path %></p>
+  <table>
+    <tr>
+      <th>Brand</th>
+      <th>Model</th>
+      <th>Body type</th>
+      <th>Mileage</th>
+      <th>Color</th>
+      <th>Price</th>
+      <th>Fuel</th>
+      <th>Year</th>
+      <th>Engine capacity</th>
+      <th>Phone number</th>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.brand %></td>
+        <td><%= post.model %></td>
+        <td><%= post.body_type %></td>
+        <td><%= post.mileage %></td>
+        <td><%= post.color %></td>
+        <td><%= post.price %></td>
+        <td><%= post.fuel %></td>
+        <td><%= post.year %></td>
+        <td><%= post.engine_capacity %></td>
+        <td><%= post.phone_number %></td>
+        <td><%= post.name %></td>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>
+
+</div>

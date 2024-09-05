@@ -66,6 +66,11 @@
     <%= form.text_field :name %>
   </div>
 
+  <div class="field">
+    <%= form.label :image, style: "display: block;" %>
+    <%= form.file_field :image %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

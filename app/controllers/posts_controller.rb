@@ -47,6 +47,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:brand, :model, :body_type, :mileage, :color, :price, :fuel, :year, :engine_capacity, :phone_number, :name)
+    params.require(:post).permit(:brand, :model, :body_type, :mileage, :color, :price, :fuel, :year, :engine_capacity, :phone_number, :name, :image)
   end
 end
