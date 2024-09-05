@@ -1,9 +1,9 @@
-<%= form_with model: @post, local: true do |form| %>
+<%= form_with model: @post, local: true, class: "max-w-lg mx-auto p-5" do |form| %>
   <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
+    <div id="error_explanation" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+      <strong class="font-bold">Oops!</strong>
+      <span class="block sm:inline"><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</span>
+      <ul class="list-disc list-inside">
         <% @post.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
@@ -11,59 +11,59 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :brand %>
-    <%= form.text_field :brand %>
+  <div class="mb-4">
+    <%= form.label :brand, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :brand, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
-  <div class="field">
-    <%= form.label :model %>
-    <%= form.text_field :model %>
+  <div class="mb-4">
+    <%= form.label :model, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :model, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
-  <div class="field">
-    <%= form.label :body_type %>
-    <%= form.text_field :body_type %>
+  <div class="mb-4">
+    <%= form.label :body_type, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :body_type, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
-  <div class="field">
-    <%= form.label :mileage %>
-    <%= form.text_field :mileage %>
+  <div class="mb-4">
+    <%= form.label :mileage, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :mileage, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
-  <div class="field">
-    <%= form.label :color %>
-    <%= form.text_field :color %>
+  <div class="mb-4">
+    <%= form.label :color, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :color, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
+  <div class="mb-4">
+    <%= form.label :price, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :price, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
-  <div class="field">
-    <%= form.label :fuel %>
-    <%= form.text_field :fuel %>
+  <div class="mb-4">
+    <%= form.label :fuel, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :fuel, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
-  <div class="field">
-    <%= form.label :year %>
-    <%= form.text_field :year %>
+  <div class="mb-4">
+    <%= form.label :year, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :year, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
-  <div class="field">
-    <%= form.label :engine_capacity %>
-    <%= form.text_field :engine_capacity %>
+  <div class="mb-4">
+    <%= form.label :engine_capacity, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :engine_capacity, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
-  <div class="field">
-    <%= form.label :phone_number %>
-    <%= form.text_field :phone_number %>
+  <div class="mb-4">
+    <%= form.label :phone_number, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :phone_number, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="mb-4">
+    <%= form.label :name, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
   <div class="field">
@@ -71,7 +71,9 @@
     <%= form.file_field :image %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="flex items-center justify-between">
+    <%= form.submit "Save", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
   </div>
 <% end %>
+
+
