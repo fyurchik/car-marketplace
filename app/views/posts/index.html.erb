@@ -1,45 +1,12 @@
-<div class="p-4">
-  <h1 class="text-2xl font-bold mb-4">Posts#index</h1>
-  <p class="mb-4">Find me in app/views/posts/index.html.erb</p>
-  <p><%= link_to 'New Post', new_post_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %></p>
-  <table class="w-full border-collapse">
-    <thead>
-      <tr>
-        <th class="py-2 px-4 bg-gray-200 text-gray-700">Brand</th>
-        <th class="py-2 px-4 bg-gray-200 text-gray-700">Model</th>
-        <th class="py-2 px-4 bg-gray-200 text-gray-700">Body type</th>
-        <th class="py-2 px-4 bg-gray-200 text-gray-700">Mileage</th>
-        <th class="py-2 px-4 bg-gray-200 text-gray-700">Color</th>
-        <th class="py-2 px-4 bg-gray-200 text-gray-700">Price</th>
-        <th class="py-2 px-4 bg-gray-200 text-gray-700">Fuel</th>
-        <th class="py-2 px-4 bg-gray-200 text-gray-700">Year</th>
-        <th class="py-2 px-4 bg-gray-200 text-gray-700">Engine capacity</th>
-        <th class="py-2 px-4 bg-gray-200 text-gray-700">Phone number</th>
-        <th class="py-2 px-4 bg-gray-200 text-gray-700">Name</th>
-        <th class="py-2 px-4 bg-gray-200 text-gray-700"></th>
-        <th class="py-2 px-4 bg-gray-200 text-gray-700"></th>
-        <th class="py-2 px-4 bg-gray-200 text-gray-700"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @posts.each do |post| %>
-        <tr>
-          <td class="py-2 px-4 border-b border-gray-200"><%= post.brand %></td>
-          <td class="py-2 px-4 border-b border-gray-200"><%= post.model %></td>
-          <td class="py-2 px-4 border-b border-gray-200"><%= post.body_type %></td>
-          <td class="py-2 px-4 border-b border-gray-200"><%= post.mileage %></td>
-          <td class="py-2 px-4 border-b border-gray-200"><%= post.color %></td>
-          <td class="py-2 px-4 border-b border-gray-200"><%= post.price %></td>
-          <td class="py-2 px-4 border-b border-gray-200"><%= post.fuel %></td>
-          <td class="py-2 px-4 border-b border-gray-200"><%= post.year %></td>
-          <td class="py-2 px-4 border-b border-gray-200"><%= post.engine_capacity %></td>
-          <td class="py-2 px-4 border-b border-gray-200"><%= post.phone_number %></td>
-          <td class="py-2 px-4 border-b border-gray-200"><%= post.name %></td>
-          <td class="py-2 px-4 border-b border-gray-200"><%= link_to 'Show', post, class: "text-blue-500 hover:text-blue-700" %></td>
-          <td class="py-2 px-4 border-b border-gray-200"><%= link_to 'Edit', edit_post_path(post), class: "text-blue-500 hover:text-blue-700" %></td>
-          <td class="py-2 px-4 border-b border-gray-200"><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-red-500 hover:text-red-700" %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div>
+  <div class="flex flex-wrap">
+    <% @posts.each do |post| %>
+      <div class="w-1/4 p-4">
+        <%= link_to post_path(post) do %>
+          <%= image_tag post.image, class: "w-full h-auto mb-4", style: "max-height: 300px;" %>
+        <% end %>
+        <p><%= "#{post.brand}, #{post.model}" %></p>
+      </div>
+    <% end %>
+  </div>
 </div>

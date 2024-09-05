@@ -1,20 +1,20 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
+  before_action :set_post, only: %i[show edit update destroy]
 
   def index
-    @posts = Post.all
+    @posts = current_user.posts
   end
 
   def show
-    @post = Post.find(params[:id])
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
 
     if @post.save
       redirect_to @post
@@ -24,12 +24,9 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
-
     if @post.update(post_params)
       redirect_to @post
     else
@@ -38,7 +35,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
 
     redirect_to posts_path
@@ -47,6 +43,10 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:brand, :model, :body_type, :mileage, :color, :price, :fuel, :year, :engine_capacity, :phone_number, :name, :image)
+    params.require(:post).permit(:brand, :model, :body_type, :mileage, :color, :price, :fuel, :year, :engine_capacity, :phone_number, :name, :image, :status)
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 end
