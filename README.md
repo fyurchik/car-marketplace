@@ -10,7 +10,7 @@
 1. **Clone the repository**
    ```bash
    git clone repo-url
-   cd repo-name[repository-name]
+   cd repo-name
    ```
 2. Set up PostgreSQL
    ```bash
