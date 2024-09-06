@@ -25,7 +25,13 @@
    ```bash
    rails db:seed
    ```
-5. Start the Rails Server
+   
+   ## Aadmin data to sign in
+
+   login: ```admin@admin.com```
+   password: ```admin123```
+   
+6. Start the Rails Server
    ```bash
    bin/dev
    ```
