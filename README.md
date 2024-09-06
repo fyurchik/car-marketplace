@@ -38,9 +38,6 @@
 
 # API Documentation
 
-## Authentication
-
-
 ### Admin Endpoints
 
 #### 1. Get All Posts (Admin)
