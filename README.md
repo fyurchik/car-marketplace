@@ -12,16 +12,20 @@
    git clone repo-url
    cd repo-name
    ```
-2. Set up PostgreSQL
+2. Install dependencies
+   ```bash
+   bundle install
+   ```
+3. Set up PostgreSQL
    ```bash
    rails db:create
    rails db:migrate
    ```
-3. Seed to have admin
+4. Seed to have admin
    ```bash
    rails db:seed
    ```
-4. Start the Rails Server
+5. Start the Rails Server
    ```bash
    bin/dev
    ```
