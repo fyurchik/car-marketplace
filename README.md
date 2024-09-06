@@ -35,3 +35,94 @@
    ```bash
    bin/dev
    ```
+
+# API Documentation
+
+## Authentication
+All API requests require the use of a generated API key included in the header of the request. Not all routes are authenticated.
+
+## Error Codes
+The API uses the following error codes:
+- `200 OK` — The request was successful.
+- `201 CREATED` — A new resource was successfully created.
+- `401 UNAUTHORIZED` — The API key provided was invalid.
+- `404 NOT FOUND` — The requested resource was not found.
+- `422 UNPROCESSABLE ENTITY` — Required data was not provided or validation failed.
+
+## Endpoints
+
+### Admin Endpoints
+
+#### 1. Get All Posts (Admin)
+- **URL:** `/admin/posts`
+- **Method:** `GET`
+- **Auth Required:** Yes (Admin role)
+- **Description:** Retrieves all posts available to the admin.
+
+#### 2. Show Post (Admin)
+- **URL:** `/admin/posts/:id`
+- **Method:** `GET`
+- **Auth Required:** Yes (Admin role)
+- **URL Parameters:** `id=[integer]` — ID of the post to retrieve.
+
+#### 3. Approve Post (Admin)
+- **URL:** `/admin/posts/:id/approve`
+- **Method:** `PATCH`
+- **Auth Required:** Yes (Admin role)
+- **URL Parameters:** `id=[integer]` — ID of the post to approve.
+
+#### 4. Reject Post (Admin)
+- **URL:** `/admin/posts/:id/reject`
+- **Method:** `PATCH`
+- **Auth Required:** Yes (Admin role)
+- **URL Parameters:** `id=[integer]` — ID of the post to reject.
+
+### User Endpoints
+
+#### 5. Get All Posts (User)
+- **URL:** `/posts`
+- **Method:** `GET`
+- **Auth Required:** Yes (User role)
+- **Description:** Retrieves all posts created by the current logged-in user.
+
+#### 6. Show Post (User)
+- **URL:** `/posts/:id`
+- **Method:** `GET`
+- **Auth Required:** Yes (User role)
+- **URL Parameters:** `id=[integer]` — ID of the post to retrieve.
+
+#### 7. Create Post (User)
+- **URL:** `/posts`
+- **Method:** `POST`
+- **Auth Required:** Yes (User role)
+- **Content-Type:** `multipart/form-data`
+- **Description:** Creates a new post with the provided parameters. Image upload is required.
+- **Request Body Fields:** (All fields are required)
+  - `brand`: String
+  - `model`: String
+  - `body_type`: String
+  - `mileage`: Integer
+  - `color`: String
+  - `price`: Integer
+  - `fuel`: String
+  - `year`: Integer
+  - `engine_capacity`: Float
+  - `phone_number`: String
+  - `name`: String
+  - `image`: File (image file, required)
+  - `status`: String (default: "pending")
+
+#### 8. Update Post (User)
+- **URL:** `/posts/:id`
+- **Method:** `PATCH`
+- **Auth Required:** Yes (User role)
+- **URL Parameters:** `id=[integer]` — ID of the post to update.
+
+#### 9. Delete Post (User)
+- **URL:** `/posts/:id`
+- **Method:** `DELETE`
+- **Auth Required:** Yes (User role)
+- **URL Parameters:** `id=[integer]` — ID of the post to delete.
+
+
+
