@@ -1,24 +1,27 @@
-# README
+# Setup Instructions
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Ruby (3.1.6)
+- Rails (7.1.4)
+- PostgreSQL
+- Bundler (2.5.11)
 
-Things you may want to cover:
+## Initial Setup
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. **Clone the repository**
+   ```bash
+   git clone repo-url
+   cd repo-name[repository-name]
+   ```
+2. Set up PostgreSQL
+   ```bash
+   rails db:create
+   rails db:migrate
+   ```
+3. Seed to have admin
+   ```bash
+   rails db:seed
+   ```
+4. Start the Rails Server
+   ```bash
+   bin/dev
+   ```
