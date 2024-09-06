@@ -39,17 +39,7 @@
 # API Documentation
 
 ## Authentication
-All API requests require the use of a generated API key included in the header of the request. Not all routes are authenticated.
 
-## Error Codes
-The API uses the following error codes:
-- `200 OK` — The request was successful.
-- `201 CREATED` — A new resource was successfully created.
-- `401 UNAUTHORIZED` — The API key provided was invalid.
-- `404 NOT FOUND` — The requested resource was not found.
-- `422 UNPROCESSABLE ENTITY` — Required data was not provided or validation failed.
-
-## Endpoints
 
 ### Admin Endpoints
 
