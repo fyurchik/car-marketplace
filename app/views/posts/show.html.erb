@@ -1,20 +1,24 @@
-<div class="p-4">
-  <h1 class="text-2xl font-bold mb-4"><%= @post.brand %> <%= @post.model %></h1>
+<div class="p-6">
+  <h1 class="text-3xl font-bold mb-6">Post Details</h1>
 
   <% if @post.image.attached? %>
     <%= image_tag @post.image, class: "w-48 h-48 object-cover mb-4 rounded-md" %>
   <% end %>
 
-  <p class="mb-2"><%= @post.body_type %></p>
-  <p class="mb-2"><%= @post.mileage %></p>
-  <p class="mb-2"><%= @post.color %></p>
-  <p class="mb-2"><%= @post.price %></p>
-  <p class="mb-2"><%= @post.fuel %></p>
-  <p class="mb-2"><%= @post.year %></p>
-  <p class="mb-2"><%= @post.engine_capacity %></p>
-  <p class="mb-2"><%= @post.phone_number %></p>
-  <p class="mb-2"><%= @post.name %></p>
+  <div class="bg-white shadow-md rounded-lg p-6 mb-6">
+    <p class="text-lg font-semibold mb-2">Brand: <%= @post.brand %></p>
+    <p class="text-lg font-semibold mb-2">Model: <%= @post.model %></p>
+    <p class="text-lg font-semibold mb-2">Body Type: <%= @post.body_type %></p>
+    <p class="text-lg font-semibold mb-2">Mileage: <%= @post.mileage %></p>
+    <p class="text-lg font-semibold mb-2">Color: <%= @post.color %></p>
+    <p class="text-lg font-semibold mb-2">Price: <%= @post.price %></p>
+    <p class="text-lg font-semibold mb-2">Fuel: <%= @post.fuel %></p>
+    <p class="text-lg font-semibold mb-2">Year: <%= @post.year %></p>
+    <p class="text-lg font-semibold mb-2">Engine Capacity: <%= @post.engine_capacity %></p>
+    <p class="text-lg font-semibold mb-2">Contact Number: <%= @post.phone_number %></p>
+    <p class="text-lg font-semibold mb-2">Posted By: <%= @post.name %></p>
+  </div>
 
   <%= link_to 'Edit', edit_post_path(@post), class: "bg-blue-500 text-white px-4 py-2 rounded mr-2" %>
-  <%= link_to 'Back', posts_path, class: "bg-gray-500 text-white px-4 py-2 rounded" %>
+  <%=link_to 'Back', posts_path, class: "bg-gray-500 text-white px-4 py-2 rounded" %>
 </div>
